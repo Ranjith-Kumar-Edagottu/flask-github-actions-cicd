@@ -1,0 +1,40 @@
+name: Flask Website CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  docker-build-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/flask-app:latest
+
+  deploy:
+    needs: docker-build-push
+    runs-on: self-hosted
+
+    steps:
+      - name: Pull Latest Image & Run Container
+        run: |
+          docker pull ${{ secrets.DOCKERHUB_USERNAME }}/flask-app:latest
+          docker stop flask-app || true
+          docker rm flask-app || true
+          docker run -d --name flask-app -p 80:80 --restart always ${{ secrets.DOCKERHUB_USERNAME }}/flask-app:latest
