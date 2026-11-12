@@ -1,113 +1,65 @@
+cat << 'EOF' > templates/index.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DevOps Zero To Hero</title>
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-
-body{
-min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
-color:#e0e0e0
-}
-
-.container{text-align:center;padding:2rem;max-width:640px}
-
-h1{
-font-size:2.5rem;
-background:linear-gradient(90deg,#00d2ff,#7b2ff7);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-margin-bottom:.5rem
-}
-
-.badge{
-display:inline-block;
-margin:1rem 0;
-padding:.4rem 1.2rem;
-border:1px solid #7b2ff7;
-border-radius:999px;
-font-size:.9rem;
-color:#c4b5fd
-}
-
-.pipeline{
-margin-bottom:1.5rem;
-font-size:.9rem;
-color:#9ca3af
-}
-
-.cards{
-display:flex;
-gap:1rem;
-justify-content:center;
-flex-wrap:wrap
-}
-
-.card{
-background:rgba(255,255,255,.06);
-border:1px solid rgba(255,255,255,.1);
-border-radius:12px;
-padding:1.4rem;
-min-width:150px
-}
-
-.card span{
-display:block;
-font-size:.7rem;
-color:#9ca3af;
-margin-bottom:.4rem;
-letter-spacing:.1em
-}
-
-.card strong{
-font-size:1.2rem;
-color:#f9fafb
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranjith Kumar | Cloud & DevOps CI/CD Deployment</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #0f172a;
+            color: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 2.5rem;
+            max-width: 540px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+        .badge {
+            display: inline-block;
+            background: #10b98120;
+            color: #34d399;
+            border: 1px solid #10b98150;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        h1 { margin: 0 0 0.75rem; font-size: 1.75rem; }
+        p { color: #cbd5e1; line-height: 1.6; margin-bottom: 1.5rem; }
+        .stack { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .tag {
+            background: #334155;
+            padding: 0.35rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: #e2e8f0;
+        }
+    </style>
 </head>
-
 <body>
-
-<div class="container">
-
-<h1>DevOps Zero To Hero [DevSecOps Live]</h1>
-<div class="badge">Josh Batch 10 (USA Edition BOOOM)</div>
-
-<div class="pipeline">
-Built • Tested • Linted • Deployed via GitHub Actions
-</div>
-
-<div class="cards">
-<div class="card">
-<span>Framework</span>
-<strong>Flask 3.1</strong>
-</div>
-
-<div class="card">
-<span>Runtime</span>
-<strong>Python 3.14</strong>
-</div>
-
-<div class="card">
-<span>Deploy</span>
-<strong>AWS ECS</strong>
-</div>
-
-<div class="card">
-<span>CI/CD</span>
-<strong>GitHub Actions</strong>
-</div>
-</div>
-
-</div>
-
+    <div class="card">
+        <div class="badge">● Live Automated Deployment</div>
+        <h1>Flask CI/CD Pipeline on AWS EC2</h1>
+        <p>Built and deployed automatically via GitHub Actions, Docker Hub, and a self-hosted EC2 runner.</p>
+        <div class="stack">
+            <span class="tag">Python / Flask</span>
+            <span class="tag">Docker</span>
+            <span class="tag">GitHub Actions</span>
+            <span class="tag">AWS EC2</span>
+            <span class="tag">Gunicorn</span>
+        </div>
+    </div>
 </body>
 </html>
+EOF
